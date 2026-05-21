@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Mercado Libre</title>
+    <link rel="stylesheet" href="css/styles-login.css">
+</head>
+
+<body>
+
+     <!-- HEADER -->
+    <header class="header-login">
+        <img src="img/mercado-libre-logo.png" alt="logo">
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="login-container">
+
+        <!-- IZQUIERDA -->
+        <div class="login-info">
+            <h1>Ingresa tu e-mail o teléfono<br>para iniciar sesión</h1>
+
+            <div class="help-box">
+                <p>Tengo un problema de seguridad</p>
+            </div>
+
+            <a href="#" class="help-link">Necesito ayuda</a>
+        </div>
+
+        <!-- DERECHA -->
+        <div class="login-box">
+
+    <!-- REGISTRO -->
+    <div id="registro" class="form-section">
+
+        <h2>Crear cuenta</h2>
+
+        <form id="form-register">
+            <label>Nombre</label>
+            <input type="text">
+
+            <label>Email</label>
+            <input type="email">
+
+            <label>Contraseña</label>
+            <input type="password">
+
+            <button type="submit" class="btn-primary">
+                Registrarse
+            </button>
+        </form>
+
+        <a href="#login" class="switch-link">Ya tengo cuenta</a>
+
+    </div>
+
+
+    <!-- LOGIN -->
+    <div id="login" class="form-section">
+
+        <h2>Iniciar sesión</h2>
+
+       <form id="form-login">
+            <label>E-mail o teléfono</label>
+            <input type="text">
+
+            <label>Contraseña</label>
+            <input type="password">
+
+            <button type="submit" class="btn-primary">
+                Continuar
+            </button>
+        </form>
+
+        <a href="#registro" class="switch-link">Crear cuenta</a>
+
+    </div>
+
+</div>
+    </main>
+
+    <script src="js/auth.js" defer></script>
+    <!-- defer es un atributo que se usa en la etiqueta <script> de HTML para controlar cuándo 
+        se ejecuta el JavaScript. -->
+
+    <!-- FOOTER -->
+    <footer class="footer-login">
+        <p>Cómo cuidamos tu privacidad - Copyright © 1999-2026</p>
+    </footer>
+</body>
+</html>

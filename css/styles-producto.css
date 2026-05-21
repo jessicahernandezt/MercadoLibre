@@ -1,0 +1,85 @@
+.contenedor-producto{
+    display:flex;
+    gap:40px;
+    padding:40px 80px;
+    background:#fff;
+    width:90%;
+    margin:30px auto;
+    border-radius:8px;
+}
+
+.galeria{
+    flex:1;
+}
+
+.galeria img{
+    width:100%;
+    max-width:400px;
+    object-fit:contain;
+}
+
+.info-producto{
+    flex:1;
+}
+
+.titulo{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.precio-anterior{
+    text-decoration:line-through;
+    color:#999;
+}
+
+.precio{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.descuento{
+    color:green;
+    font-size:14px;
+}
+
+.meses{
+    color:green;
+    margin-top:10px;
+}
+
+.envio{
+    color:green;
+    margin-top:10px;
+}
+
+.btn-agregar{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#3483fa;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-agregar:hover{
+    background:#2968c8;
+}
+
+.condicion{
+    font-size:14px;
+    color:#666;
+    margin-bottom:10px;
+}
+
+.ubicacion{
+    font-size:14px;
+    color:#666;
+    margin-top:10px;
+}
+
+.vendidos{
+    font-size:13px;
+    color:#666;
+}

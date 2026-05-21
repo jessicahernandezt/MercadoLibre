@@ -5,28 +5,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Mercado Libre</title>
 </head>
 <!-- Cuerpo de la pagina -->
 
+<script>
+
+    function actualizarContador() {
+
+        fetch("php/contador_carrito.php")
+
+            .then(res => res.text())
+
+            .then(data => {
+
+                document.getElementById(
+                    "contador-carrito"
+                ).textContent = data;
+
+            });
+
+    }
+
+    actualizarContador();
+
+</script>
+
 <body>
-    <header>
-        <div>
-            <h1>Mercado Libre</h1>
+    <header class="header">
+
+        <!-- Fila superior -->
+        <div class="header-top">
+
+            <div class="logo">
+                <img src="img/mercado-libre-logo.png" alt="Logo Mercado Libre">
+            </div>
+
+            <div class="buscador">
+                <form>
+                    <input type="text" placeholder="Buscar productos, marcas y más...">
+                    <button type="submit">
+                        <img src="img/lupa.png" alt="Buscar">
+                    </button>
+                </form>
+            </div>
+
+
+            <img src="img/002.webp" alt="Logo Mercado Libre" class="img-banner">
+
         </div>
 
-        <div>
-            <form>
-                <input type="text" placeholder="Buscar productos">
-                <button type="submit">Buscar</button>
-            </form>
         </div>
+
         <!-- Barra de navegación -->
+        <nav class="nav">
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Catálogo</a></li>
+            <ul class="menu-left">
+                <li><a href="../MercadoLibre/php/catalogo.php">Catalogo</a></li>
                 <li><a href="#">Ofertas</a></li>
                 <li><a href="#">Cupones</a></li>
                 <li><a href="#">Supermercado</a></li>
@@ -34,51 +70,332 @@
                 <li><a href="#">Mercado Play</a></li>
                 <li><a href="#">Vender</a></li>
                 <li><a href="#">Ayuda</a></li>
-                <li><a href="registro.html">Crea tu cuenta</a></li>
-                <li><a href="#">Ingresa</a></li>
-                <li><a href="#">Mis compras</a></li>
-                <li><a href="carrito.html">Carrito</a></li>
             </ul>
+
+            <ul class="menu-right">
+                <li><a href="register.php">Crea tu cuenta</a></li>
+                <li><a href="login.php">Ingresa</a></li>
+                <li><a href="#">Mis compras</a></li>
+                <li class="carrito-icono">
+                    <a href="php/carrito.php">
+                        <img src="img/shopping-cart-empty-side-view_34568.png" class="img-carrito">
+                        <span id="contador-carrito" class="contador">0</span>
+                    </a>
+
+                </li>
+            </ul>
+
         </nav>
 
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
     <main>
-        <!-- Sección principal (section) --> 
-        <div> 
-            <h2>Envío gratis</h2>
-            <p>img</p>
-            <p>Boton</p>
+        <div class="hero">
+
+            <div class="carousel">
+
+                <div class="carousel-track" id="track">
+                    <div class="slide"><img src="img/c001.webp"></div>
+                    <div class="slide"><img src="img/c002.webp"></div>
+                    <div class="slide"><img src="img/c003.webp"></div>
+                    <div class="slide"><img src="img/c004.webp"></div>
+                    <div class="slide"><img src="img/c005.webp"></div>
+                    <div class="slide"><img src="img/c006.webp"></div>
+                    <div class="slide"><img src="img/c007.webp"></div>
+                </div>
+
+                <!-- Flechas -->
+                <button class="arrow left">‹</button>
+                <button class="arrow right">›</button>
+
+                <!-- Dots -->
+                <div class="carousel-buttons">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                    <span class="dot" data-index="3"></span>
+                    <span class="dot" data-index="4"></span>
+                    <span class="dot" data-index="5"></span>
+                    <span class="dot" data-index="6"></span>
+                </div>
+
+            </div>
+
+
+            <!-- Sección principal (section) -->
+            <div class="seccion-cards">
+                <div class="cards-container">
+                    <div class="card">
+                        <h3>Envío gratis</h3>
+                        <div class="card-img"> <img src="img/01.png" alt="imagen de una caja"></div>
+                        <div class="card-body">
+
+                            <p>Beneficio por ser tu primera compra.</p>
+                            <button>Mostrar productos</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Ingresar a tu cuenta</h3>
+                        <div class="card-img"> <img src="img/02.png" alt="imagen de una caja"></div>
+                        <div class="card-body">
+                            <p>Disfruta de ofertas y compra sin limites</p>
+                            <button>Ingresar a tu cuenta</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Menos de $500</h3>
+                        <div class="card-img"> <img src="img/03.png" alt="imagen de una caja"></div>
+                        <div class="card-body">
+
+                            <p>Descubre productos con precios bajos.</p>
+                            <button>Ver productos</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Más vendidos</h3>
+                        <div class="card-img"> <img src="img/04.png" alt="imagen de una caja"></div>
+                        <div class="card-body">
+
+                            <p>Explora los productos que son tendencia.</p>
+                            <button>Ir a más vendidos</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Compra protegida</h3>
+                        <div class="card-img"> <img src="img/05.png" alt="imagen de una caja"></div>
+                        <div class="card-body">
+
+                            <p>Puedes devolver tu compra gratis</p>
+                            <button>Como funciona</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Tiendas oficicales</h3>
+                        <div class="card-img"> <img src="img/06.png" alt="imagen de una caja"></div>
+                        <div class="card-body">
+
+                            <p>Encuentra tus marcas preferidas</p>
+                            <button>Mostrar tiendas</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
 
         <!-- Sección segunda -->
-        <div>
-            <h2>Ofertas</h2>
-            <p>img</p>
-            <p>ver mas</p>
+        <div class="banners">
+
+            <div class="banner">
+                <div class="banner-text">
+                    <p class="subtitulo">REACONDICIONADOS</p>
+                    <h3>HASTA -50% DEL PRECIO REGULAR</h3>
+                    <a href="#">Ver más</a>
+                </div>
+
+                <div class="banner-img">
+                    <img src="img/b001.webp" alt="Productos reacondicionados">
+                </div>
+            </div>
+
+            <div class="banner">
+                <div class="banner-text">
+                    <p class="subtitulo">CARRITOS DESDE $299</p>
+                    <h3>PRECIOS BAJOS<br>ENVÍOS GRATIS</h3>
+                    <a href="#">Comprar ahora</a>
+                </div>
+
+                <div class="banner-img">
+                    <img src="img/b002.webp" alt="Carritos y productos">
+                </div>
+            </div>
+
         </div>
 
         <!-- Sección tercera -->
-        <div>
-            <h2>Ofertas del día</h2>
-            <p>Aquí irán los productos destacados</p>
+        <div class="ofertas-section">
+
+            <!-- Oferta del día -->
+            <div class="oferta-dia">
+                <h2>Oferta del día</h2>
+
+                <div class="oferta-card">
+                    <img src="img/p001.png" alt="Hidrolavadora">
+
+                    <p class="titulo">
+                        Hidrolavadora Electrica 1200w 1600 Psi Alta Presion Amarillo 60hz
+                    </p>
+
+                    <p class="precio-anterior">$ 2,643</p>
+
+                    <p class="precio">
+                        $ 899 <span>65% OFF</span>
+                    </p>
+
+                    <p class="meses">24 meses de $ 54.33</p>
+
+                    <p class="envio">Envío gratis por ser tu primera compra</p>
+                </div>
+            </div>
+
+            <!-- Ofertas -->
+            <div class="ofertas-lista">
+
+                <div class="ofertas-header">
+                    <h2>Ofertas</h2>
+                    <a href="#">Mostrar todas las ofertas</a>
+                </div>
+
+                <div class="productos-scroll">
+
+                    <div class="producto">
+                        <img src="img/p002.png">
+                        <p class="titulo">Cubot Kingkong...</p>
+                        <p class="precio">$ 2,301 <span>34% OFF</span></p>
+                        <p class="envio">Envío gratis</p>
+                    </div>
+
+                    <div class="producto">
+                        <img src="img/p003.png">
+                        <p class="titulo">Silla Gamer...</p>
+                        <p class="precio">$ 1,514 <span>29% OFF</span></p>
+                        <p class="envio">Envío gratis</p>
+                    </div>
+
+                    <div class="producto">
+                        <img src="img/p004.png">
+                        <p class="titulo">Soldadora...</p>
+                        <p class="precio">$ 583 <span>26% OFF</span></p>
+                        <p class="envio">Envío gratis</p>
+                    </div>
+
+                    <div class="producto">
+                        <img src="img/p005.png">
+                        <p class="titulo">Guantes...</p>
+                        <p class="precio">$ 378 <span>24% OFF</span></p>
+                        <p class="envio">Envío gratis</p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-         <!-- Sección cuarta -->
-        <div>
-            <h2>VIVE MERCADO LIBRE COMO UN EXPERTO</h2>
-            
-        </div>
+        <!-- Sección cuarta -->
+        <div class="meli-section">
 
+            <!-- HEADER -->
+            <div class="meli-header">
+
+                <div class="meli-left">
+                    <span class="meli-badge">meli+</span>
+                    <span class="meli-oferta">OFERTA ESPECIAL 🔥</span>
+                    <h2>VIVE MERCADO LIBRE COMO UN EXPERTO</h2>
+                </div>
+
+                <div class="meli-right">
+                    <button>Suscribirme desde $ 49.90</button>
+                </div>
+
+            </div>
+
+            <!-- BENEFICIOS -->
+            <div class="meli-beneficios">
+
+                <div class="beneficio">
+                    <img src="img/b1.png" alt="">
+                    <p>Las mejores plataformas de entretenimiento</p>
+                </div>
+
+                <div class="beneficio">
+                    <img src="img/b2.png" alt="">
+                    <p>Envíos gratis en productos Full desde $ 149</p>
+                </div>
+
+                <div class="beneficio">
+                    <img src="img/b3.png" alt="">
+                    <p>Hasta 5% de cashback en tus compras</p>
+                </div>
+
+                <div class="beneficio">
+                    <img src="img/b4.png" alt="">
+                    <p>3 meses extra sin intereses en tus compras</p>
+                </div>
+
+            </div>
+
+            <div class="entretenimiento">
+
+                <h2>Beneficios en entretenimiento</h2>
+
+                <div class="cards-ent">
+
+                    <!-- CARD 1 -->
+                    <div class="card-ent">
+                        <img src="img/eb3.jpg" alt="Disney">
+
+                        <div class="overlay">
+                            <div class="logos">
+                                <img src="img/e3.png" alt="HBO">
+                            </div>
+                            <div>
+                                <h3>Incluido con Meli+ </h3>
+                                <p>Plan Estándar con anuncios</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="card-ent">
+                        <img src="img/eb2.jpg" alt="HBO">
+
+                        <div class="overlay">
+                            <div class="logos">
+                                <img src="img/e2.png" alt="HBO">
+                            </div>
+                            <div>
+                                <h3>15% OFF</h3>
+                                <p>HBO Max</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="card-ent">
+                        <img src="img/eb1.jpg" alt="Universal">
+
+                        <div class="overlay">
+                            <div class="logos">
+                                <img src="img/e1.png" alt="HBO">
+                            </div>
+                            <div>
+                                <h3>7 DÍAS GRATIS</h3>
+                                <p>15% OFF Universal+</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
     </main>
 
     <!-- PIE DE PÁGINA -->
     <footer>
         <p>© 2026 Mercado Libre</p>
     </footer>
+
+    <script src="js/carousel.js"></script>
 </body>
-
-
 
 </html>

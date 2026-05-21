@@ -1,37 +1,68 @@
+<?php
+
+session_start();
+
+include("conexion.php");
+
+$query = "SELECT * FROM productos";
+
+$resultado = $db->query($query);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
-<!-- Encabezado  -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/styles-catalogo.css">
-    <title>Mercado Libre</title>
-</head>
-<!-- Cuerpo de la pagina -->
+    <title>Catálogo</title>
 
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles-catalogo.css">
+</head>
+<script>
+
+function actualizarContador(){
+
+    fetch("contador_carrito.php")
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        document.getElementById(
+            "contador-carrito"
+        ).textContent = data;
+
+    });
+
+}
+
+actualizarContador();
+
+</script>
 <body>
-    <header class="header">
+<header class="header">
 
         <!-- Fila superior -->
         <div class="header-top">
 
             <div class="logo">
-                <img src="img/mercado-libre-logo.png" alt="Logo Mercado Libre">
+                <img src="../img/mercado-libre-logo.png" alt="Logo Mercado Libre">
             </div>
 
             <div class="buscador">
                 <form>
                     <input type="text" placeholder="Buscar productos, marcas y más...">
                     <button type="submit">
-                        <img src="img/lupa.png" alt="Buscar">
+                        <img src="../img/lupa.png" alt="Buscar">
                     </button>
                 </form>
             </div>
 
 
-            <img src="img/002.webp" alt="Logo Mercado Libre" class="img-banner">
+            <img src="../img/002.webp" alt="Logo Mercado Libre" class="img-banner">
 
         </div>
 
@@ -57,7 +88,25 @@
                 <li><a href="#">Mis compras</a></li>
                 <li>
                     <a href="carrito.php">
-                        <img src="img/shopping-cart-empty-side-view_34568.png" class="img-carrito">
+                       <div class="carrito-icono">
+
+    <a href="carrito.php">
+
+        <img
+        src="../img/shopping-cart-empty-side-view_34568.png"
+        class="img-carrito">
+
+        <span
+        id="contador-carrito"
+        class="contador">
+
+            0
+
+        </span>
+
+    </a>
+
+</div>
                     </a>
                 </li>
             </ul>
@@ -66,13 +115,13 @@
 
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main>
-        <div class="catalogo">
+<main>
 
-            <!-- SIDEBAR -->
-            <aside class="filtros">
-                <h3>Samsung galaxy</h3>
+    <div class="catalogo">
+
+        <!-- SIDEBAR -->
+          <aside class="filtros">
+                <h3>Tecnologia</h3>
                 <p class="resultados">4,334 resultados</p>
 
                 <div class="filtro">
@@ -108,36 +157,78 @@
                 </div>
             </aside>
 
-            <!-- CONTENIDO -->
-            <section class="contenido">
+        <!-- PRODUCTOS -->
+        <section class="contenido">
 
-                <!-- ORDEN -->
-                <div class="orden">
-                    <span>Ordenar por</span>
-                    <select>
-                        <option>Más relevantes</option>
-                        <option>Menor precio</option>
-                        <option>Mayor precio</option>
-                    </select>
-                </div>
+            <div class="productos-grid">
 
-                <!-- GRID PRODUCTOS -->
-                <div class="productos-grid" id="productos"></div>
+                <?php while($producto = $resultado->fetchArray()) { ?>
 
+<a href="producto.php?id=<?php echo $producto['id']; ?>" class="producto-link">
 
-            </section>
+    <div class="producto">
 
-        </div>
-    </main>
+        <img src="<?php echo $producto['imagen']; ?>">
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>© 2026 Mercado Libre</p>
-    </footer>
+        <p class="titulo">
+            <?php echo $producto['titulo']; ?>
+        </p>
 
-    <script src="js/catalogo.js"></script>
+        <?php if($producto['precio_anterior']) { ?>
+
+            <p class="precio-anterior">
+                $<?php echo number_format($producto['precio_anterior']); ?>
+            </p>
+
+        <?php } ?>
+
+        <p class="precio">
+            $<?php echo number_format($producto['precio']); ?>
+
+            <span>
+                <?php echo $producto['descuento']; ?>
+            </span>
+        </p>
+
+        <p class="meses">
+            <?php echo $producto['meses']; ?>
+        </p>
+
+        <p class="envio">
+            <?php echo $producto['envio']; ?>
+        </p>
+
+       <form action="agregar_carrito.php" method="POST">
+
+    <input
+        type="hidden"
+        name="producto_id"
+        value="<?php echo $producto['id']; ?>"
+    >
+
+    <button class="btn-agregar">
+
+        Agregar al carrito
+
+    </button>
+
+</form>
+
+    </div>
+
+</a>
+
+<?php } ?>
+
+                       
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
 </body>
-
-
-
 </html>

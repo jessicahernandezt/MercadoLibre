@@ -1,0 +1,210 @@
+body {
+    background: #ebebeb;
+}
+
+/* CONTENEDOR */
+
+.carrito-container {
+    display: flex;
+    gap: 30px;
+    padding: 40px 80px;
+    align-items: flex-start;
+}
+
+
+/* IZQUIERDA */
+
+.carrito-lista {
+    flex: 2;
+}
+
+
+/* HEADER */
+
+.carrito-header {
+    background: white;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.carrito-header h2 {
+    margin: 0;
+}
+
+.full {
+    color: #00a650;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* PRODUCTO */
+
+.producto-carrito {
+    background: white;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+
+/* IMAGEN */
+
+.img-producto {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+
+/* INFO */
+
+.producto-info {
+    flex: 1;
+}
+
+.producto-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.precio {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.envio-gratis {
+    color: #00a650;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+
+/* CANTIDAD */
+
+.cantidad-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cantidad-box button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.cantidad-box span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* SUBTOTAL */
+
+.subtotal-box {
+    display: flex;
+    align-items: center;
+}
+
+.subtotal {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* ENVIO */
+
+.envio-box {
+    background: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+.gratis {
+    color: #00a650;
+    font-weight: bold;
+}
+
+
+/* RESUMEN */
+
+.carrito-resumen {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    position: sticky;
+    top: 20px;
+}
+
+.carrito-resumen h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/* LINEAS */
+
+.resumen-linea {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+
+/* TOTAL */
+
+.resumen-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* BOTON */
+
+.btn-comprar {
+    width: 100%;
+    padding: 14px;
+    background: #3483fa;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.btn-comprar:hover {
+    background: #2968c8;
+}
+
+.btn-eliminar{
+    display: inline-block;
+    margin-top: 10px;
+    color: #3483fa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-eliminar:hover{
+    text-decoration: underline;
+}
